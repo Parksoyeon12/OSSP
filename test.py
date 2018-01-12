@@ -2,10 +2,12 @@ import csv
 
 line = []
  
-f = open('kinder.csv', 'r')
+f = open('recycle.csv', 'r')
 rdr = csv.reader(f)
+
 for row in rdr:
-    line.append(row)
-    
-print(line[0])
-f.close()  s
+	line.append(row)
+	for lines in line:
+		print(lines)
+
+f.close()

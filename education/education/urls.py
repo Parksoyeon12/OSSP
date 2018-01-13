@@ -19,6 +19,6 @@ from django.conf.urls import url
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url(r'edu/', include('myapp.urls')),
+    url(r'', include('myapp.urls')),
     url(r'input/', include('myapp.urls')),
   ]

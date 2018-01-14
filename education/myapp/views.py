@@ -46,42 +46,39 @@ def index(request):
 def input(request):
 
 	line = []
-	f = open('kinder.csv', 'r')
+	f = open('free.csv', 'r')
 	rdr = csv.reader(f)
 
 	for row in rdr:
 		line.insert(0, row)
 		for lines in line:
-			kinders = kinder(
-				divide = lines[1],
-				types = lines[2],
-				name = lines[3], 
-				snumber= lines[4],
-				address = lines[5],
+			frees = free(
+				facility = lines[0],
+				address = lines[1],
+				support = lines[2], 
+				teephone= lines[3],
+				location = lines[4],
+				opponent = lines[5],
+				time = lines[6],
+				day = lines[7]
+
 				) 
-			kinders.save()
+			frees.save()
 
 	return render(request, 'myapp/index.html')
 
 
 
-
-
-
 def input1(request):
-	line = []
-	f = open('free.csv','r')
-	rdr = csv.reader(f)
 
-	for row in rdr:
-		line.append(row)
+	q = request.GET.get('q')
 
-		frees = free(
-			name = line[0]
-			)
-	frees.save()
+	kinders = kinder.objects.filter(name = q)
+	context = {
+		'kinders' : kinders
+	}
 
-	f.close()
+	return render(request, 'myapp/index.html', context)
 
 
 

@@ -8,5 +8,5 @@ urlpatterns = [
 	url(r'^edu/', views.index, name = 'api_search'),
 	url(r'^input/', views.input, name = 'inputdata'),
 	url(r'^input1/', views.input1, name = 'childsearch'),
-	url(r'^input2/', views.input2)
+	url(r'^input2/', views.input2, name = 'freesearch'),
 ]

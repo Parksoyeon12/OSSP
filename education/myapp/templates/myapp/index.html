@@ -81,66 +81,36 @@
         <h2 class="text-center text-uppercase text-secondary mb-0">Free meal</h2>
         <hr class="star-dark mb-5">
         <div class="row">
-          <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-1">
-              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                  <i class="fa fa-search-plus fa-3x"></i>          
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/cabin.png" alt="">
-            </a>
+         <div class="col-lg-4 ml-auto">
+            <p class="lead"><form action="{% url 'newss:freesearch' %}" method="GET">
+            <input type="text" name="q" placeholder="Free meel Title..">
+              <input type="submit" value="검색">
+           </form></p>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
-              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/cake.png" alt="">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3">
-              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/circus.png" alt="">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-4">
-              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/game.png" alt="">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-5">
-              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/safe.png" alt="">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-6">
-              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
-                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
-                  <i class="fa fa-search-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/submarine.png" alt="">
-            </a>
-          </div>
+          <div class="col-lg-4 mr-auto">
+            <p style="font-size:25px">  {% if frees %}
+            {% for free in frees %}
+            시설명 : {{ free.facility }}
+            <br>
+            주소 : {{free.address}}
+            <br>
+            운영기관명 : {{ free.support }}
+            <br>
+            전화번호 : {{ free.telephone}}
+            <br>
+            급식장소 : {{ free.location}}
+            <br>
+            대상 : {{ free.opponent}}
+            <br>
+            시간 : {{ free.time}}
+            <br>
+            요일 : {{ free.day}}
+            <br>
+            {% endfor %}
+            {% endif %}</p>
+          
+        </div>
+         </div>
         </div>
       </div>
     </section>
@@ -172,8 +142,9 @@
             <br>
             {% endfor %}
             {% endif %}</p>
-          </div>
+          
         </div>
+         </div>
         <div class="text-center mt-4">
           <a class="btn btn-xl btn-outline-light" href='{% url "newss:inputdata" %}'>
             <i class="fa fa-download mr-2"></i>

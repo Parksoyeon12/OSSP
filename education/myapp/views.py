@@ -56,7 +56,7 @@ def input(request):
 				facility = lines[0],
 				address = lines[1],
 				support = lines[2], 
-				teephone= lines[3],
+				telephone= lines[3],
 				location = lines[4],
 				opponent = lines[5],
 				time = lines[6],
@@ -83,18 +83,13 @@ def input1(request):
 
 
 def input2(request):
-  	line = []
-  	f = open('recycle.csv','r')	
-  	rdr = csv.reader(f)
 
-  	for row in rdr:
-  		line.append(row)
+  	q = request.GET.get('q')
+  	frees = free.objects.filter(facility = q)
 
-  		recycles = recycle(
-  			name = line[0]
-  			)
-  		recycles.save()
-
-  		f.close()
+  	context = {
+  		'frees' : frees
+  	}
+  	return render(request, 'myapp/index.html', context)
 
 

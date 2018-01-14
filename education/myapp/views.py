@@ -40,35 +40,6 @@ def index(request):
 		        return render(request, 'myapp/index.html', context=context)
 
 
-
-
-#csv파일 불러오는 함수
-def input(request):
-
-	line = []
-	f = open('free.csv', 'r')
-	rdr = csv.reader(f)
-
-	for row in rdr:
-		line.insert(0, row)
-		for lines in line:
-			frees = free(
-				facility = lines[0],
-				address = lines[1],
-				support = lines[2], 
-				telephone= lines[3],
-				location = lines[4],
-				opponent = lines[5],
-				time = lines[6],
-				day = lines[7]
-
-				) 
-			frees.save()
-
-	return render(request, 'myapp/index.html')
-
-
-
 def input1(request):
 
 	q = request.GET.get('q')
@@ -89,6 +60,19 @@ def input2(request):
 
   	context = {
   		'frees' : frees
+  	}
+  	return render(request, 'myapp/index.html', context)
+
+
+
+
+def input3(request):
+
+  	q = request.GET.get('q')
+  	recycles = recycle.objects.filter(center = q)
+
+  	context = {
+  		'recycles' : recycles
   	}
   	return render(request, 'myapp/index.html', context)
 

@@ -124,27 +124,41 @@
            </form></p>
           </div>
           <div class="col-lg-4 mr-auto">
-            <p style="font-size:25px">  {% if frees %}
-            {% for free in frees %}
-            시설명 : {{ free.facility }}
-            <br>
-            주소 : {{free.address}}
-            <br>
-            운영기관명 : {{ free.support }}
-            <br>
-            전화번호 : {{ free.telephone}}
-            <br>
-            급식장소 : {{ free.location}}
-            <br>
-            대상 : {{ free.opponent}}
-            <br>
-            시간 : {{ free.time}}
-            <br>
-            요일 : {{ free.day}}
-            <br>
-            {% endfor %}
-            {% endif %}</p>
-          
+
+
+
+             <table class=table4_12>
+                {% if frees %}
+                {% for free in frees %}
+              <tr>
+               <strong> <td><strong>시설명</strong></td><td><strong>{{ free.facility }}</strong></td></strong>
+              </tr>
+              <tr>
+                <td>주소</td><td>{{ free.address }}</td>
+              </tr>
+                <tr>
+                <td>운영기관명</td><td>{{ free.support }}</td>
+              </tr>
+              <tr>
+                <td> 전화번호</td><td>{{ free.telephone }}</td>
+              </tr>
+              </tr>
+                <tr>
+                <td>급식장소</td><td>{{ free.location }}</td>
+              </tr>
+              <tr>
+                <td>대상</td><td>{{ free.opponent }}</td>
+              </tr>
+                <tr>
+                <td>시간</td><td>{{ free.time }}</td>
+              </tr>
+                <tr>
+                <td>요일</td><td>{{ free.day }}</td>
+              </tr>
+
+                {% endfor %}
+                {% endif %}
+              </table>
         </div>
          </div>
         </div>
@@ -152,9 +166,9 @@
     </section>
 
     <!-- About Section -->
-    <section class="bg-primary text-white mb-0" id="about">
+    <section class="bg-primary mb-0" id="about">
       <div class="container">
-        <h2 class="text-center text-uppercase text-white">Childcare</h2>
+        <h2 class="text-center text-uppercase">Childcare</h2>
         <hr class="star-light mb-5">
         <div class="row">
           <div class="col-lg-4 ml-auto">
@@ -166,20 +180,32 @@
            </form></p>
           </div>
           <div class="col-lg-4 mr-auto">
-            <p style="font-size:30px">  {% if kinders %}
+
+
+              <table class=table4_12>
+              {% if kinders %}
             {% for kinder in kinders %}
-            유치원명 : {{ kinder.name }}
-            <br>
-            지역구 : {{ kinder.divide }}
-            <br>
-            유형 : {{ kinder.types}}
-            <br>
-            정원 : {{ kinder.snumber }}
-             <br>
-            주소 : {{ kinder.address}}
-            <br>
-            {% endfor %}
-            {% endif %}</p>
+              <tr>
+                <strong><td><strong>유치원명</strong></td><td><strong>{{ kinder.name }}</strong></td></strong>
+              </tr>
+              <tr>
+                <td>지역구</td><td>{{ kinder.divide }}</td>
+              </tr>
+                <tr>
+                <td>유형</td><td>{{ kinder.types }}</td>
+              </tr>
+              <tr>
+                <td> 정원</td><td>{{ kinder.snumber }}</td>
+              </tr>
+              </tr>
+                <tr>
+                <td>주소</td><td>{{ kinder.address }}</td>
+              </tr>
+        
+                {% endfor %}
+                {% endif %}
+              </table>
+  
           
         </div>
          </div>
@@ -201,26 +227,36 @@
            </form></p>
           </div>
             <div class="col-lg-4 mr-auto">
-                <p style="font-size:30px">  {% if recycles %}
-                {% for recycle in recycles %}
-                센터명 : {{ recycle.center }}
-                <br>
-                면적 : {{ recycle.area }}
-                <br>
-                유형 : {{ recycle.item}}
-                <br>
-                탈 것 : {{ recycle.vehicle }}
-                 <br>
-                주소 : {{ recycle.address}}
-                <br>
-                기관 : {{ recycle.operating}}
-                <br>
-                전화번호 : {{ recycle.telephone}}
-                <br>
 
+
+              <table class=table4_12>
+                {% if recycles %}
+                {% for recycle in recycles %}
+              <tr>
+               <td> <strong>센터명</strong></td><td><strong>{{ recycle.center }}</strong></td>
+              </tr>
+              <tr>
+                <td>면적</td><td>{{ recycle.area }}</td>
+              </tr>
+                <tr>
+                <td>유형</td><td>{{ recycle.item }}</td>
+              </tr>
+              <tr>
+                <td> 탈 것</td><td>{{ recycle.vehicle }}</td>
+              </tr>
+              </tr>
+                <tr>
+                <td>주소</td><td>{{ recycle.address }}</td>
+              </tr>
+              <tr>
+                <td>기관</td><td>{{ recycle.operating }}</td>
+              </tr>
+                <tr>
+                <td>전화번호</td><td>{{ recycle.telephone }}</td>
+              </tr>
                 {% endfor %}
-                {% endif %}</p>
-              
+                {% endif %}
+              </table>
                 </div>
         </div>
       </div>

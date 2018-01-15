@@ -8,19 +8,18 @@ rdr = csv.reader(f)
 
 for row in rdr:
 	line.append(row)
-	for lines in line:
-		for i in range(22):
-			recycles = recycle(
-				center = lines[0],
-				road = lines[2],
-				address = lines[3], 
-				area= lines[6],
-				vehicle = lines[8],
-				item = lines[9],
-				operating = lines[10],
-				telephone = lines[11]
-
-				) 
+	
+for lines in line:
+	recycles = recycle(
+		center = lines[0],
+		road = lines[2],
+		address = lines[3], 
+		area= lines[6],
+		vehicle = lines[8],
+		item = lines[9],
+		operating = lines[10],
+		telephone = lines[11]
+		) 
 
 f.close()
 
@@ -35,7 +34,7 @@ for row in rdr:
 				facility = lines[0],
 				address = lines[1],
 				support = lines[2], 
-				teephone= lines[3],
+				telephone= lines[3],
 				location = lines[4],
 				opponent = lines[5],
 				time = lines[6],
@@ -53,7 +52,7 @@ for row in rdr:
 		for i in range(22):
 			kinders = kinder(
 				divide = lines[1],
-				type = lines[2],
+				types = lines[2],
 				name = lines[3], 
 				snumber= lines[4],
 				address = lines[5],

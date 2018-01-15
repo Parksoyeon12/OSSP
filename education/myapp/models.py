@@ -7,8 +7,7 @@ class kinder(models.Model):
 	divide =  models.CharField(max_length = 100)
 	types =  models.CharField(max_length = 100)
 	snumber =  models.CharField(max_length = 100)
-
-	address =  models.CharField(max_length = 100)
+	address =  models.CharField(max_length = 1000)
 
 
 class free(models.Model):

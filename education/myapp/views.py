@@ -44,7 +44,7 @@ def input1(request):
 
 	q = request.GET.get('q')
 
-	kinders = kinder.objects.filter(name = q)
+	kinders = kinder.objects.filter(name__contains = q)
 	context = {
 		'kinders' : kinders
 	}
@@ -56,7 +56,7 @@ def input1(request):
 def input2(request):
 
   	q = request.GET.get('q')
-  	frees = free.objects.filter(facility = q)
+  	frees = free.objects.filter(facility__contains = q)
 
   	context = {
   		'frees' : frees
@@ -69,7 +69,7 @@ def input2(request):
 def input3(request):
 
   	q = request.GET.get('q')
-  	recycles = recycle.objects.filter(center = q)
+  	recycles = recycle.objects.filter(center__contains = q)
 
   	context = {
   		'recycles' : recycles

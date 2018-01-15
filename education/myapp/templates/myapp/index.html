@@ -3,6 +3,39 @@
 {% load staticfiles %}
   <head>
 
+
+
+
+    <style>
+.table4_12 table {
+  width:100%;
+  margin:15px 0;
+  border:0;
+}
+.table4_12 th {
+  background-color:#50C2FF;
+  color:#FFFFFF
+}
+.table4_12,.table4_12 th,.table4_12 td {
+  font-size:0.95em;
+  text-align:center;
+  padding:4px;
+  border-collapse:collapse;
+}
+.table4_12 th,.table4_12 td {
+  border: 1px solid #9bdcfe;
+  border-width:1px 0 1px 0
+}
+.table4_12 tr {
+  border: 1px solid #9bdcfe;
+}
+.table4_12 tr:nth-child(odd){
+  background-color:#c4eafe;
+}
+.table4_12 tr:nth-child(even){
+  background-color:#fdfdfd;
+}
+</style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -84,6 +117,7 @@
         <div class="row">
          <div class="col-lg-4 ml-auto">
             <p class="lead"><form action="{% url 'newss:freesearch' %}" method="GET">
+               {% csrf_token %}
             <input class = "form-control" type="text" name="q" placeholder="Free meel Title..">
             <br>
             <button class="btn btn-xl btn-outline-light" type="submit">Search</button>
@@ -125,6 +159,7 @@
         <div class="row">
           <div class="col-lg-4 ml-auto">
             <p class="lead"><form action="{% url 'newss:childsearch' %}" method="GET">
+               {% csrf_token %}
             <input class = "form-control" type="text" name="q" placeholder="Kidnergarden Title..">
             <br>
               <button class="btn btn-xl btn-outline-light" type="submit">Search</button>
@@ -159,6 +194,7 @@
         <div class="row">
          <div class="col-lg-4 ml-auto">
             <p class="lead"><form action="{% url 'newss:recyclesearch' %}" method="GET">
+               {% csrf_token %}
             <input class = "form-control" type="text" name="q" placeholder="Recycle Title..">
             <br>
               <button class="btn btn-xl btn-outline-light" type="submit">Search</button>
